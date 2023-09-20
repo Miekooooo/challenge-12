@@ -3,10 +3,10 @@ const mysql = require('mysql2');
 
 // Create a database connection
 const db = mysql.createConnection({
-    host: 'your_host',
-    user: 'your_user',
-    password: 'your_password',
-    database: 'employeeManager_db', // Change to your actual database name
+    host: '192.168.4.28',
+    user: 'root',
+    password: 'Minecrafter17',
+    database: 'employeeManager_db', 
 });
 
 // Connect to the database
@@ -69,17 +69,136 @@ function startApp() {
         });
 }
 
-// Implement functions to perform database operations (e.g., view, add, update)
-
+// Function to view departments
 function viewDepartments() {
-    // Query the database to retrieve and display departments
-    // Example:
-    // db.query('SELECT * FROM departments', (err, results) => {
-    //     if (err) throw err;
-    //     // Display results here
-    // });
+    db.query('SELECT * FROM departments', (err, results) => {
+        if (err) throw err;
+        console.log('Departments:');
+        console.table(results); // Display results in a tabular format
+        startApp(); // Return to the main menu
+    });
 }
 
-// Implement similar functions for viewing roles, employees, adding departments, roles, employees, and updating employee roles
+// Implement similar functions for viewing roles and employees
+
+// Function to add a department
+function addDepartment() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: 'Enter the name of the department:',
+                validate: (input) => {
+                    if (input.trim() === '') {
+                        return 'Department name cannot be empty.';
+                    }
+                    return true;
+                },
+            },
+        ])
+        .then((answer) => {
+            db.query('INSERT INTO departments (name) VALUES (?)', [answer.name], (err, results) => {
+                if (err) throw err;
+                console.log('Department added successfully!');
+                startApp(); // Return to the main menu
+            });
+        });
+}
+
+// Implement similar functions for adding roles, employees, and updating employee roles
+
+// Function to update an employee's role
+function updateEmployeeRole() {
+    // Inquirer prompts to collect information for the update
+    // Then execute the UPDATE SQL statement
+}
+
+function viewRoles() {
+    db.query('SELECT * FROM roles', (err, results) => {
+        if (err) throw err;
+        console.log('Roles:');
+        console.table(results);
+        startApp();
+    });
+}
+
+function addEmployee() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'first_name',
+                message: "Enter the employee's first name:",
+                // Validation here, if needed
+            },
+            {
+                type: 'input',
+                name: 'last_name',
+                message: "Enter the employee's last name:",
+                // Validation here, if needed
+            },
+            {
+                type: 'input',
+                name: 'role_id',
+                message: "Enter the employee's role ID:",
+                // Validation here, if needed
+            },
+            {
+                type: 'input',
+                name: 'manager_id',
+                message: "Enter the employee's manager ID (optional):",
+                // Validation here, if needed
+            },
+        ])
+        .then((answers) => {
+            db.query('INSERT INTO employees SET ?', answers, (err, result) => {
+                if (err) throw err;
+                console.log('Employee added successfully!');
+                startApp();
+            });
+        });
+}
+
+function addRole() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'title',
+                message: 'Enter the role title:',
+                // Validation here, if needed
+            },
+            {
+                type: 'input',
+                name: 'salary',
+                message: 'Enter the role salary:',
+                // Validation here, if needed
+            },
+            {
+                type: 'input',
+                name: 'department_id',
+                message: 'Enter the department ID for this role:',
+                // Validation here, if needed
+            },
+        ])
+        .then((answers) => {
+            db.query('INSERT INTO roles SET ?', answers, (err, result) => {
+                if (err) throw err;
+                console.log('Role added successfully!');
+                startApp();
+            });
+        });
+}
+
+function viewEmployees() {
+    db.query('SELECT * FROM employees', (err, results) => {
+        if (err) throw err;
+        console.log('Employees:');
+        console.table(results);
+        startApp();
+    });
+}
+// Continue implementing similar functions for other actions
 
 // Call startApp() to begin the application
