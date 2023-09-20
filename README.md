@@ -1,28 +1,28 @@
 # challenge-12
 
 
-## Website link
+## Github Repo
 
-- 
+- https://github.com/Miekooooo/challenge-12
 
 ## Instructions
-1. 
-2. 
-3. 
+1. Run your "schema.sql" file
+2. Run your "app.js" with node
+3. Pick what action you wanna complete using your arrow keys
 
 ## Description
-- 
+- A employee manager that is ran in your console using Inquirer and SQL. 
 
 
-- "what was my motivation?" 
-- "why did I build this project?" 
-- "what problem does it solve?" 
-- "what did I learn?" 
+- "what was my motivation?" - To understand Inquirer better by the end.
+- "why did I build this project?" - To better understand Inquirer and SQL.
+- "what problem does it solve?" - It gives a employeer a easy to use and run employee manangement system.
+- "what did I learn?" - How to create a Inquirer console application.
 
 ## Features
 
-- 
-- 
+- Ability to view roles, employees, etc.
+- Ability to change roles, employees, etc.
 
 ## Screenshots
 
@@ -32,15 +32,15 @@
 
 ## Installation
 
-- 
+- No installation 
 
 ## Usage
 
-- 
+- Could be used in a small workplace, such as a smaller family owned business; being that a console app would begin to get confusing the more it was expanded possibly.
 
 ## Credits
 
-
+- Google.com 
 
 ## License 
 
