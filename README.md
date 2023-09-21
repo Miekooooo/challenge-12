@@ -26,9 +26,9 @@
 
 ## Screenshots
 
-- 
-- 
-- 
+- ![Alt text](addEmployee_Function.PNG)
+- ![Alt text](addDepartment_Function.PNG)
+- ![Alt text](<Console options.PNG>)
 
 ## Installation
 
