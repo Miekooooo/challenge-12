@@ -7,7 +7,7 @@
 
 ## Video Link
 
-- 
+- https://drive.google.com/file/d/1OP3n3ScC0qP5UBFLyyNPuBV0pkVMe9QT/view
 
 ## Instructions
 1. Run your "schema.sql" file
