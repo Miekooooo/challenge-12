@@ -5,6 +5,10 @@
 
 - https://github.com/Miekooooo/challenge-12
 
+## Video Link
+
+- 
+
 ## Instructions
 1. Run your "schema.sql" file
 2. Run your "app.js" with node

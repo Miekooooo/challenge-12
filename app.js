@@ -107,8 +107,33 @@ function addDepartment() {
 
 // Function to update an employee's role
 function updateEmployeeRole() {
-    // Inquirer prompts to collect information for the update
-    // Then execute the UPDATE SQL statement
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'employee_id',
+                message: "Enter the employee's ID you want to update:",
+                // Validation here, if needed
+            },
+            {
+                type: 'input',
+                name: 'new_role_id',
+                message: "Enter the new role ID for the employee:",
+                // Validation here, if needed
+            },
+        ])
+        .then((answers) => {
+            // Update the employee's role in the database
+            db.query(
+                'UPDATE employees SET role_id = ? WHERE id = ?',
+                [answers.new_role_id, answers.employee_id],
+                (err, result) => {
+                    if (err) throw err;
+                    console.log('Employee role updated successfully!');
+                    startApp(); // Return to the main menu
+                }
+            );
+        });
 }
 
 function viewRoles() {
